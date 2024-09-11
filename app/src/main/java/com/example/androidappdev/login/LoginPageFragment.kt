@@ -8,7 +8,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.androidappdev.R
 import com.example.androidappdev.model.Student
@@ -37,11 +39,13 @@ class LoginPageFragment: Fragment() {
 
         //implementing lifecycleScope for fragment and coroutines
         lifecycleScope.launch {
-            viewModel.greetingText.collect{ greetingTextState ->
-
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.greetingTextState.collect { greetingTextState ->
+                    view.findViewById<TextView>(R.id.loginPage).text = greetingTextState
+                }
             }
         }
-        view.findViewById<TextView>(R.id.loginPage).text = viewModel.greetingText.value
+
 
         //Use viewModel in loginPageFragment
         println(viewModel::class.java)
