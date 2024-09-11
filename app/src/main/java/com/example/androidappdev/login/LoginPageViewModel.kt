@@ -20,7 +20,7 @@ class LoginPageViewModel:ViewModel() {
 
         viewModelScope.launch {
             delay(3000)
-            updateGreetingTextState("Logged in!")
+            updateGreetingTextState("Log in!")
         }
 
 
