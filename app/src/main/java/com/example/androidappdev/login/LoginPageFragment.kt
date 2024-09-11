@@ -8,9 +8,12 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.androidappdev.R
 import com.example.androidappdev.model.Student
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class LoginPageFragment: Fragment() {
     //creating reference to viewModel
@@ -28,6 +31,17 @@ class LoginPageFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //accessing to viewModel.value syntax how i access to mutableStateFlow data that contain
+        /*view.findViewById<TextView>(R.id.loginPage).text = viewModel.greetingText.value*/
+
+        //implementing lifecycleScope for fragment and coroutines
+        lifecycleScope.launch {
+            viewModel.greetingText.collect{ greetingTextState ->
+
+            }
+        }
+        view.findViewById<TextView>(R.id.loginPage).text = viewModel.greetingText.value
 
         //Use viewModel in loginPageFragment
         println(viewModel::class.java)
