@@ -54,8 +54,8 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         Log.d("nit3213", "onStart: ")
     }
-    
 
+    
     override fun onResume() {
         super.onResume()
         Log.d("nit3213", "onResume: ")
