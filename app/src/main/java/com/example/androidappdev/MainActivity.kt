@@ -6,7 +6,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.androidappdev.fragments.LoginPageFragment
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,10 +22,32 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         // lunch fragment use supportFragmentManager
-        supportFragmentManager.beginTransaction()
+        /*supportFragmentManager.beginTransaction()
             .setReorderingAllowed(true)
             .add(R.id.fragment_container_view, LoginPageFragment::class.java, null)
-            .commit()
+            .commit()*/
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
+        val navController = navHostFragment.navController
+        val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavBar)
+
+        bottomNavBar.setupWithNavController(navController)
+
+        bottomNavBar.setOnItemSelectedListener { item ->
+            if (item.itemId != bottomNavBar.selectedItemId) {
+
+                val fragmentId = when(item.itemId) {
+                    R.id.navigation_login -> R.id.loginPageFragment
+                    R.id.navigation_dashboard -> R.id.dashboardFragment
+                   // R.id.navigation_details -> R.id.DetailsFragment
+                    else -> R.id.loginPageFragment
+                }
+
+                navController.popBackStack()
+                navController.navigate(fragmentId)
+            }
+            true
+        }
+
 
     }
     override fun onStart() {

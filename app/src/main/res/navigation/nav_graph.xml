@@ -5,14 +5,47 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginPageFragment">
 
+
     <fragment
         android:id="@+id/loginPageFragment"
-        android:name="com.example.androidappdev.fragments.LoginPageFragment"
-        android:label="LoginPageFragment"
-        tools:layout="@layout/fragment_login"/>
+        android:name="com.example.androidappdev.login.LoginPageFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginPageFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.example.androidappdev.fragments.DashboardFragment"
+        android:name="com.example.androidappdev.ui.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue='"n/a"' />
+
+        <argument
+            android:name="password"
+            app:argType="string"
+            android:defaultValue='"n/a"' />
+        <argument
+            android:name="student"
+            app:argType="com.example.androidappdev.model.Student" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.androidappdev.ui.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details">
+
+        <action
+            android:id="@+id/action_detailsFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+
+
 </navigation>
