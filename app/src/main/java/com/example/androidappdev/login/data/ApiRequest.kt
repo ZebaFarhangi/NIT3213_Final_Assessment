@@ -1,6 +1,6 @@
 package com.example.androidappdev.login.data
 
-data class LoginRequest(
+data class ApiRequest(
     val password: String,
     val username: String
 )

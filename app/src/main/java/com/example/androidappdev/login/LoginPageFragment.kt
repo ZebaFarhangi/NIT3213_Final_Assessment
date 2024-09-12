@@ -53,6 +53,7 @@ class LoginPageFragment: Fragment() {
             val user = username.text.toString()
             val pass = password.text.toString()
             // Call login method in ViewModel
+            viewModel.login(user, pass)
         }
 
         //Use viewModel in loginPageFragment
@@ -63,5 +64,6 @@ class LoginPageFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<TextView>(R.d.l)
     }*/
+
 
 }

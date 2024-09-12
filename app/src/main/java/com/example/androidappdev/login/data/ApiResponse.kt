@@ -1,5 +1,5 @@
 package com.example.androidappdev.login.data
 
-data class LoginResponse(
+data class ApiResponse(
     val keypass: String
 )

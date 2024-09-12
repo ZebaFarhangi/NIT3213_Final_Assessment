@@ -36,9 +36,8 @@ class MainActivity : AppCompatActivity() {
             if (item.itemId != bottomNavBar.selectedItemId) {
 
                 val fragmentId = when(item.itemId) {
-                    R.id.navigation_login -> R.id.loginPageFragment
                     R.id.navigation_dashboard -> R.id.dashboardFragment
-                   // R.id.navigation_details -> R.id.DetailsFragment
+                    R.id.navigation_details -> R.id.detailsFragment
                     else -> R.id.loginPageFragment
                 }
 
