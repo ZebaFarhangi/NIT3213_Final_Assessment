@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidappdev.R
+import com.example.androidappdev.login.data.ApiResponse
 
 class RecyclerviewAdapter: RecyclerView.Adapter<ViewHolder>() {
     private val dataList: MutableList<String> = mutableListOf()
@@ -22,10 +23,5 @@ class RecyclerviewAdapter: RecyclerView.Adapter<ViewHolder>() {
         holder.bind(dataList[position])
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun updateData(data: List<String>){
-        dataList.clear()
-        dataList.addAll(data)
-        notifyDataSetChanged()
-    }
+
 }

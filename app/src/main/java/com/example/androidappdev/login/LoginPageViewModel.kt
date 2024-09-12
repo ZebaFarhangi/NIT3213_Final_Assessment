@@ -23,7 +23,7 @@ class LoginPageViewModel: ViewModel() {
         }
     }
 
-    fun updateGreetingTextState(value: String) {
+    private fun updateGreetingTextState(value: String) {
         _greetingText.value = value
     }
 

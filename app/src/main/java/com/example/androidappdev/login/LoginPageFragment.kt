@@ -13,7 +13,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.androidappdev.R
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class LoginPageFragment: Fragment() {
@@ -39,11 +41,7 @@ class LoginPageFragment: Fragment() {
 
         //implementing lifecycleScope for fragment and coroutines
         lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.greetingTextState.collect { greetingTextState ->
-                    view.findViewById<TextView>(R.id.btn_login).text = greetingTextState
-                }
-            }
+            delay(3000)
         }
         val username = view.findViewById<EditText>(R.id.username)
         val password = view.findViewById<EditText>(R.id.password)
@@ -54,12 +52,15 @@ class LoginPageFragment: Fragment() {
             val pass = password.text.toString()
             // Call login method in ViewModel
             viewModel.login(user, pass)
+            findNavController().navigate(R.id.action_loginPageFragment_to_dashboardFragment)
         }
 
         //Use viewModel in loginPageFragment
        /* println(viewModel::class.java)*/
 
+
     }
+
     /*override fun onViewCreated(view: View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<TextView>(R.d.l)

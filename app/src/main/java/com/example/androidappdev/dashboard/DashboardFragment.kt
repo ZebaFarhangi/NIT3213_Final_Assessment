@@ -7,7 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.androidappdev.R
+import com.example.androidappdev.dashboard.recyclerView.RecyclerviewAdapter
+import com.example.androidappdev.login.data.ApiResponse
 
 class DashboardFragment : Fragment() {
     //get reference to all this data, extract data ,Receive the Arguments in the destination fragment
@@ -30,25 +33,16 @@ class DashboardFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         //args:view.findViewById<TextView>(R.id.username).text =  "Student Info: ${args.student}"
-        view.findViewById<TextView>(R.id.username).text =  "This is Dashboard"
+       // view.findViewById<TextView>(R.id.dashboardFragment).text =  "This is Dashboard"
+        val recyclerviewAdapter = RecyclerviewAdapter()
+        view.findViewById<RecyclerView>(R.id.recyclerView).adapter = recyclerviewAdapter
+
+       // recyclerviewAdapter.updateData(data = ApiResponse)
+       data class ApiResponse(
+           val keypass: String
+       )
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DashboardFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DashboardFragment().apply {
-
-            }
-    }
 }
