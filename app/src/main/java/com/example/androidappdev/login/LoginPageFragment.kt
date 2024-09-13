@@ -7,12 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.androidappdev.R
 import kotlinx.coroutines.delay
@@ -22,7 +19,7 @@ class LoginPageFragment: Fragment() {
     //creating reference to viewModel
     private val viewModel: LoginPageViewModel by viewModels()
 
-    private lateinit var button: Button
+   // private lateinit var button: Button
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
