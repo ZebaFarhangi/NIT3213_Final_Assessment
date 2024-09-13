@@ -1,4 +1,4 @@
-package com.example.androidappdev.login.network
+package com.example.androidappdev.dashboard.api
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -28,7 +28,7 @@ class RestfulApiRetrofit {
         .client(client)
         .build()
 
-    val apiService: RestfullApiService= retrofit.create(com.example.androidappdev.login.network.RestfullApiService::class.java)
+    val apiService: DashboardApiService = retrofit.create(DashboardApiService::class.java)
 
 
 

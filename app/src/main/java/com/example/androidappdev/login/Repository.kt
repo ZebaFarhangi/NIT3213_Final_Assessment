@@ -1,5 +1,6 @@
-package com.example.androidappdev.login.data
+package com.example.androidappdev.login
 
+import com.example.androidappdev.data.ApiRequest
 import com.example.androidappdev.login.network.RestfullApiService
 
 class Repository @Inject constructor(private val apiService: RestfullApiService) {
