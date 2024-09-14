@@ -1,15 +1,11 @@
 package com.example.androidappdev.login.network
 
-import com.example.androidappdev.dashboard.data.DashboardResponse
-import com.example.androidappdev.login.data.ApiRequest
-import com.example.androidappdev.login.data.ApiResponse
-import retrofit2.Response
+import com.example.androidappdev.login.data.AddObjectRequest
+import com.example.androidappdev.login.data.AddObjectResponse
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
-import retrofit2.http.Path
 
 interface RestfullApiService {
     @POST("/ort/auth")
-    suspend fun addObject( @Body data: ApiRequest): ApiResponse
+    suspend fun addObject( @Body requestBody: AddObjectRequest):AddObjectResponse
 }

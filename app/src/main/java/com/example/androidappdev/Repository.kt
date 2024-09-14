@@ -1,6 +1,6 @@
 package com.example.androidappdev
 
-import com.example.androidappdev.login.data.ApiRequest
+import com.example.androidappdev.login.data.AddObjectRequest
 import com.example.androidappdev.login.network.RestfullApiService
 
 

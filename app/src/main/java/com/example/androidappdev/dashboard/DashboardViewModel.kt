@@ -3,7 +3,7 @@ package com.example.androidappdev.dashboard
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.androidappdev.RestfulApiRetrofit
+import com.example.androidappdev.login.RestfulApiRetrofit
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch

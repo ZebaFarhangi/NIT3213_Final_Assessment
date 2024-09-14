@@ -3,6 +3,7 @@ package com.example.androidappdev.login
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.androidappdev.dashboard.network.DashboardApiService
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,6 +13,7 @@ class LoginPageViewModel: ViewModel() {
 
     private val _greetingText = MutableStateFlow(value = "Hello let's get started!")
     val greetingTextState: StateFlow<String> = _greetingText
+    //private val restfullApiService = RestfulApiRetrofit().apiService
 
     init {
         Log.d("nit3213", "LoginPageViewModel ViewModel was inject")
@@ -33,6 +35,7 @@ class LoginPageViewModel: ViewModel() {
             try {
                 // Simulate a long-running network call
                 val loginResult = simulateLoginNetworkCall(username, password)
+                //val result = restfullApiService.addObject(username = )
 
                 // Update UI state based on the login result
                 if (loginResult) {
@@ -49,8 +52,9 @@ class LoginPageViewModel: ViewModel() {
     }
 
     // Simulate a long-running network call
-    private suspend fun simulateLoginNetworkCall(username: String, password: String): Boolean {
+     private suspend fun simulateLoginNetworkCall(username: String, password: String): Boolean {
         delay(2000) // Simulating a delay (network call)
         return username == "Zeba" && password == "s4604460"
     }
+    //val apiService: DashboardApiService = retrofit.create(DashboardApiService::class.java)
 }
