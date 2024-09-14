@@ -1,5 +1,6 @@
-package com.example.androidappdev.dashboard.api
+package com.example.androidappdev
 
+import com.example.androidappdev.dashboard.network.DashboardApiService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -8,11 +9,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 class RestfulApiRetrofit {
-    private val BASE_URL = "https://vu-nit3213-api.onrender.com/"
+    private val BASE_URL = "https://vu-nit3213-api.onrender.com"
 
     private val logging = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
+    //private val getDashboardApiService
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(logging)
