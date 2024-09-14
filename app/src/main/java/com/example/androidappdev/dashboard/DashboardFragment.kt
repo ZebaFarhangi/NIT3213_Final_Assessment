@@ -37,7 +37,8 @@ class DashboardFragment : Fragment() {
        // view.findViewById<TextView>(R.id.dashboardFragment).text =  "This is Dashboard"
         val recyclerviewAdapter = MyAdapter()
         view.findViewById<RecyclerView>(R.id.recyclerView).adapter = recyclerviewAdapter
-
+         // implement navigation function
+        //navigationFunctionLambda = {findViewController().navigate(DashboardFragmentDirection)}
         recyclerViewAdapter =MyAdapter()
 
 
