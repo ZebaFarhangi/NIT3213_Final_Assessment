@@ -9,5 +9,5 @@ interface AuthService {
     suspend fun login(@Body credentials: LoginRequest): Response<LoginResponse>
 }
 
-data class LoginRequest(val username: String, val password: String)
+data class LoginRequest(val Zeba: String, val password: String)
 data class LoginResponse(val keypass: String)

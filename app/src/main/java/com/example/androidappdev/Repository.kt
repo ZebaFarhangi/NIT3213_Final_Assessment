@@ -8,6 +8,6 @@ import com.example.androidappdev.login.network.RestfullApiService
 class Repository @Inject constructor(private val apiService: RestfullApiService) {
     annotation class Inject
 
-    suspend fun addObject(username: String, password: String) = apiService.addObjectRequest(LoginRequest(username = "Zeba", password = "s4604460"))
+    suspend fun addObject(username: String, password: String) = apiService.addObjectRequest(LoginRequest(username,password))
     suspend fun getDashboardData(keypass: String) = apiService.getDashboardData(keypass)
 }
