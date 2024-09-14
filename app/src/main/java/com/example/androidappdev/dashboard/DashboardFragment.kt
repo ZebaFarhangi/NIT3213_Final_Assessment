@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidappdev.R
-import com.example.androidappdev.dashboard.recyclerView.RecyclerviewAdapter
+import com.example.androidappdev.dashboard.recyclerView.MyAdapter
 
 class DashboardFragment : Fragment() {
     //get reference to all this data, extract data ,Receive the Arguments in the destination fragment
@@ -33,7 +33,7 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //args:view.findViewById<TextView>(R.id.username).text =  "Student Info: ${args.student}"
        // view.findViewById<TextView>(R.id.dashboardFragment).text =  "This is Dashboard"
-        val recyclerviewAdapter = RecyclerviewAdapter()
+        val recyclerviewAdapter = MyAdapter()
         view.findViewById<RecyclerView>(R.id.recyclerView).adapter = recyclerviewAdapter
 
        // recyclerviewAdapter.updateData(data = ApiResponse)
