@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidappdev.R
+import com.example.androidappdev.dashboard.data.Entity
 import com.example.androidappdev.dashboard.recyclerView.MyAdapter
 
 class DashboardFragment : Fragment() {
@@ -15,6 +16,7 @@ class DashboardFragment : Fragment() {
     //navigate to details: private val args: DashboardFragmentArgs by navArgs()
     //Extract data from fragment
 
+    private lateinit var recyclerViewAdapter: MyAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -36,10 +38,9 @@ class DashboardFragment : Fragment() {
         val recyclerviewAdapter = MyAdapter()
         view.findViewById<RecyclerView>(R.id.recyclerView).adapter = recyclerviewAdapter
 
-       // recyclerviewAdapter.updateData(data = ApiResponse)
-       data class ApiResponse(
-           val keypass: String
-       )
+        recyclerViewAdapter =MyAdapter()
+
+
 
     }
 
