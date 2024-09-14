@@ -3,10 +3,9 @@ package com.example.androidappdev.dashboard
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.androidappdev.dashboard.api.RestfulApiRetrofit
+import com.example.androidappdev.RestfulApiRetrofit
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class DashboardViewModel: ViewModel() {
@@ -23,9 +22,9 @@ class DashboardViewModel: ViewModel() {
             delay(3000) // Simulates some task (like loading data)
             val result = restfullApiService.getDashboardData()
             val stringToDisplay = result.map{ item ->
-                item.toString() + "\n"
+                item.toString() + "\n\n"
             }
-            updateGreetingTextState(stringToDisplay.toString())
+            //updateGreetingTextState(stringToDisplay.toString())
         }
     }
 
