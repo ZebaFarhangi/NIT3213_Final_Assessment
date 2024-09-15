@@ -4,10 +4,11 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.androidappdev.login.RestfulApiRetrofit
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-
+@HiltViewModel
 class DashboardViewModel: ViewModel() {
 
     private val _greetingText = MutableStateFlow(value = "Hello!")

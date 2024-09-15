@@ -4,11 +4,12 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.androidappdev.dashboard.network.DashboardApiService
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-
+@HiltViewModel
 class LoginPageViewModel: ViewModel() {
 
     private val _greetingText = MutableStateFlow(value = "Hello let's get started!")
