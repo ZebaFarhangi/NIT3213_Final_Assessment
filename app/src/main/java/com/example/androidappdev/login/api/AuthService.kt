@@ -7,6 +7,7 @@ import retrofit2.http.POST
 interface AuthService {
     @POST("/ort/auth")
     suspend fun login(@Body credentials: LoginRequest): Response<LoginResponse>
+
 }
 
 data class LoginRequest(val Zeba: String, val password: String)
