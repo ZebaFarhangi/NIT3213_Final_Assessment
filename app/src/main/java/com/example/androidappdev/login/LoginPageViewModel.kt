@@ -9,7 +9,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-@HiltViewModel
+
 class LoginPageViewModel: ViewModel() {
 
     private val _greetingText = MutableStateFlow(value = "Hello let's get started!")

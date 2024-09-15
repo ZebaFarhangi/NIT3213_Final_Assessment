@@ -15,7 +15,7 @@ import com.example.androidappdev.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-@AndroidEntryPoint
+
 class LoginPageFragment: Fragment() {
     //creating reference to viewModel
     private val viewModel: LoginPageViewModel by viewModels()

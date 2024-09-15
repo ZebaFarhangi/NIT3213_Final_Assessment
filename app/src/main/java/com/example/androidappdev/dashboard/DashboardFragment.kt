@@ -12,7 +12,7 @@ import com.example.androidappdev.dashboard.data.Entity
 import com.example.androidappdev.dashboard.recyclerView.MyAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class DashboardFragment : Fragment() {
     //get reference to all this data, extract data ,Receive the Arguments in the destination fragment
     //navigate to details: private val args: DashboardFragmentArgs by navArgs()

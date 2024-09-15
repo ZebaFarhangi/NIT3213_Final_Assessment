@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class DetailsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
