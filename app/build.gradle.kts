@@ -5,7 +5,7 @@ plugins {
     id("kotlin-parcelize")
     //id("com.google.dagger.hilt.android") version "2.51.1" apply false
     id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
+    //id("com.google.dagger.hilt.android")
 
 
 }
@@ -67,7 +67,7 @@ dependencies {
 
     //Helt dependencies
     implementation("com.google.dagger:hilt-android:2.51.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+    kapt(libs.hilt.android.compiler)
 
 
 }
