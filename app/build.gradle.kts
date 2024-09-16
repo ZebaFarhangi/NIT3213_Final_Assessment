@@ -3,9 +3,10 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
-    //id("com.google.dagger.hilt.android") version "2.51.1" apply false
+    id("com.google.dagger.hilt.android") version "2.51.1" apply false
     id("kotlin-kapt")
     //id("com.google.dagger.hilt.android")
+   // id("dagger.hilt.android.plugin")
 
 
 }
