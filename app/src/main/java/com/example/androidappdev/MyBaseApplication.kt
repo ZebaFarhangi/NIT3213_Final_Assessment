@@ -5,7 +5,7 @@ import android.util.Log
 import dagger.hilt.android.HiltAndroidApp
 
 
-
+@HiltAndroidApp
 class MyBaseApplication: Application() {
 
     override fun onCreate() {

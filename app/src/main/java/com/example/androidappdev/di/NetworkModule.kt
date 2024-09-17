@@ -3,6 +3,7 @@ package com.example.androidappdev.di
 
 import com.example.androidappdev.data.api.AuthService
 import com.example.androidappdev.data.api.DashboardService
+import com.example.androidappdev.login.RestfulApiRetrofit
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,5 +35,11 @@ object NetworkModule {
     @Singleton
     fun provideDashboardService(retrofit: Retrofit): DashboardService {
         return retrofit.create(DashboardService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRestfulApiRetrofit(retrofit: Retrofit): RestfulApiRetrofit {
+        return retrofit.create(RestfulApiRetrofit::class.java)
     }
 }
