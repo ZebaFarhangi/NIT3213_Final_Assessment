@@ -1,6 +1,7 @@
 package com.example.androidappdev.login
 
 import com.example.androidappdev.dashboard.DashboardApiService
+import com.example.androidappdev.data.api.AuthService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -32,6 +33,7 @@ class RestfulApiRetrofit {
 
     //val apiService: DashboardApiService = retrofit.create(DashboardApiService::class.java)
     val apiService: DashboardApiService = retrofit.create(DashboardApiService::class.java)
+
 
 
 
