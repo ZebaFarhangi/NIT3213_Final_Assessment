@@ -1,11 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("androidx.navigation.safeargs.kotlin")
+    //id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
-    id("com.google.dagger.hilt.android") version "2.51.1" apply false
+   // id("com.google.dagger.hilt.android") version "2.51.1" apply false
     id("kotlin-kapt")
-    //id("com.google.dagger.hilt.android")
+    id("com.google.dagger.hilt.android")
     id("dagger.hilt.android.plugin")
 
 
@@ -69,8 +69,7 @@ dependencies {
 
     //Helt dependencies
     implementation("com.google.dagger:hilt-android:2.51.1")
-    kapt(libs.hilt.android.compiler)
-
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 
 }
 // Allow references to generated code
