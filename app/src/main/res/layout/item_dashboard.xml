@@ -1,7 +1,7 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -9,30 +9,35 @@
         android:id="@+id/assetType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItem"
         android:text="Asset Type" />
 
     <TextView
         android:id="@+id/ticker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItem"
         android:text="Ticker" />
 
     <TextView
         android:id="@+id/currentPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItem"
         android:text="Current Price" />
 
     <TextView
         android:id="@+id/dividendYield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItem"
         android:text="Dividend Yield" />
 
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItem"
         android:text="Description" />
 
 </LinearLayout>

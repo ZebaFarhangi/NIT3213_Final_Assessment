@@ -6,45 +6,43 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidappdev.R
-import com.example.androidappdev.dashboard.data.Entity
-import com.example.androidappdev.dashboard.recyclerView.MyAdapter
+//import com.example.androidappdev.dashboard.data.model.DashboardService
 import dagger.hilt.android.AndroidEntryPoint
 
 
 class DashboardFragment : Fragment() {
-    //get reference to all this data, extract data ,Receive the Arguments in the destination fragment
-    //navigate to details: private val args: DashboardFragmentArgs by navArgs()
-    //Extract data from fragment
 
-    private lateinit var recyclerViewAdapter: MyAdapter
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private lateinit var dashboardAdapter: DashboardAdapter
+    private val viewModel: DashboardViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //args:view.findViewById<TextView>(R.id.username).text =  "Student Info: ${args.student}"
-       // view.findViewById<TextView>(R.id.dashboardFragment).text =  "This is Dashboard"
-        val recyclerviewAdapter = MyAdapter()
-        view.findViewById<RecyclerView>(R.id.recyclerView).adapter = recyclerviewAdapter
-         // implement navigation function
-        //navigationFunctionLambda = {findViewController().navigate(DashboardFragmentDirection)}
-        recyclerViewAdapter =MyAdapter()
 
+        dashboardAdapter = DashboardAdapter { dashboardItem ->
+            // Handle item click, navigate to details
+            val action = DashboardFragmentDirections.actionDashboardFragmentToDetailsFragment(dashboardItem)
+            findNavController().navigate(action)
+        }
 
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView.adapter = dashboardAdapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        // Observe investmentList from the ViewModel
+        viewModel.investmentList.observe(viewLifecycleOwner) { investments ->
+            dashboardAdapter.submitList(investments)
+        }
     }
-
 }

@@ -6,7 +6,7 @@ plugins {
     id("com.google.dagger.hilt.android") version "2.51.1" apply false
     id("kotlin-kapt")
     //id("com.google.dagger.hilt.android")
-   // id("dagger.hilt.android.plugin")
+    id("dagger.hilt.android.plugin")
 
 
 }
@@ -65,6 +65,7 @@ dependencies {
 
     //json dependencies
     implementation(libs.converter.gson)
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //Helt dependencies
     implementation("com.google.dagger:hilt-android:2.51.1")

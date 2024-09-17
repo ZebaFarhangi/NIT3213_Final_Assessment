@@ -1,36 +1,38 @@
 package com.example.androidappdev.dashboard
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.androidappdev.login.RestfulApiRetrofit
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import com.example.androidappdev.login.RestfulApiRetrofit
+import javax.inject.Inject
 
-class DashboardViewModel: ViewModel() {
+@HiltViewModel
+class DashboardViewModel @Inject constructor(
+    private val apiService: RestfulApiRetrofit
+) : ViewModel() {
 
-    private val _greetingText = MutableStateFlow(value = "Hello!")
-    //create an instance of class RestfulApiRetrofit
-    val restfullApiService = RestfulApiRetrofit().apiService
+    private val _investmentList = MutableLiveData<List<DashboardItem>>()
+    val investmentList: LiveData<List<DashboardItem>> get() = _investmentList
 
     init {
-        Log.d("nit3213", "Dashboard ViewModel ViewModel was inject")
+        fetchInvestments()
+    }
 
-        // Start updating greeting text without blocking the UI
+    private fun fetchInvestments() {
         viewModelScope.launch {
-            delay(3000) // Simulates some task (like loading data)
-            val result = restfullApiService.getDashboardData()
-            val stringToDisplay = result.map{ item ->
-                item.toString() + "\n\n"
+            try {
+                val response = apiService.apiService.getDashboardData("investments")
+                _investmentList.postValue(response.entities)
+            } catch (e: Exception) {
+                Log.e("DashboardViewModel", "Failed to fetch investments", e)
             }
-            //updateGreetingTextState(stringToDisplay.toString())
         }
     }
-
-    private fun updateGreetingTextState(value: String) {
-        _greetingText.value = value
-    }
-
 }
+
+
+
