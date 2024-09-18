@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.androidappdev.dashboard.DashboardItem
 import com.example.androidappdev.data.api.RestfulApiRetrofit
+import com.example.androidappdev.login.LoginFragment
 import com.example.androidappdev.login.LoginRequest
 import com.example.androidappdev.login.LoginResponse
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -30,11 +31,12 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         // lunch fragment use supportFragmentManager
-        /*supportFragmentManager.beginTransaction()
+        supportFragmentManager.beginTransaction()
             .setReorderingAllowed(true)
-            .add(R.id.fragment_container_view, LoginPageFragment::class.java, null)
-            .commit()*/
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
+            .add(R.id.fragment_container_view, LoginFragment::class.java, null)
+            .commit()
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
         val navController = navHostFragment.navController
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavBar)
 
@@ -43,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavBar.setOnItemSelectedListener { item ->
             if (item.itemId != bottomNavBar.selectedItemId) {
 
-                val fragmentId = when(item.itemId) {
+                val fragmentId = when (item.itemId) {
                     R.id.navigation_dashboard -> R.id.dashboardFragment
                     R.id.navigation_details -> R.id.detailsFragment
                     else -> R.id.loginFragment
@@ -56,31 +58,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
-    }
-    override fun onStart() {
-        super.onStart()
-        Log.d("nit3213", "onStart: ")
     }
 
-
-    override fun onResume() {
-        super.onResume()
-        Log.d("nit3213", "onResume: ")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d("nit3213", "onPause: ")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d("nit3213", "onStop: ")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("nit3213", "onDestroy: ")
-    }
 }
