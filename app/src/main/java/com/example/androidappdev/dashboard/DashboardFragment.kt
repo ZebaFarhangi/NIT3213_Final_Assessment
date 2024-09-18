@@ -14,7 +14,7 @@ import com.example.androidappdev.R
 //import com.example.androidappdev.dashboard.data.model.DashboardService
 import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class DashboardFragment : Fragment() {
 
     private lateinit var dashboardAdapter: DashboardAdapter

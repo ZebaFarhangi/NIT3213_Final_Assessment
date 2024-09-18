@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.androidappdev.R
 import com.example.androidappdev.dashboard.DashboardItem
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailsFragment : Fragment() {
 
     override fun onCreateView(
