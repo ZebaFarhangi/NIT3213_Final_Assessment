@@ -32,7 +32,7 @@ class RestfulApiRetrofit {
         .client(client)
         .build()
 
-    //val apiService: DashboardApiService = retrofit.create(DashboardApiService::class.java)
+
     val apiService: DashboardService = retrofit.create(DashboardService::class.java)
 
 }

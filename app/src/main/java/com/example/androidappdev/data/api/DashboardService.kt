@@ -8,7 +8,7 @@ import retrofit2.http.Path
 
 interface DashboardService {
 
-    @GET("/dashboard/{keypass}")
+    @GET("/dashboard/investments")
     suspend fun getDashboardData(@Path("keypass") keypass: String): DashboardResponse
 }
 
