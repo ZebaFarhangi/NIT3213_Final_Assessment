@@ -23,7 +23,7 @@ class LoginViewModel @Inject constructor(
     fun login(username: String, password: String) {
         _loginState.value = LoginState.Loading
 
-        viewModelScope.launch {(Dispatchers.IO)//make the network request in the background.
+        viewModelScope.launch {
             try {
                 val loginRequest = LoginRequest(username, password)
                 val response = restfulApiRetrofit.apiService.login(loginRequest) // Correct usage of RestfulApiRetrofit
